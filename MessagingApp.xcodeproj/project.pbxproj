@@ -18,6 +18,7 @@
 		04F76D7A2C8E1E9100DF30C0 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 04F76D792C8E1E9100DF30C0 /* FirebaseFirestoreCombine-Community */; };
 		04F76D7C2C8E1E9100DF30C0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 04F76D7B2C8E1E9100DF30C0 /* FirebaseStorage */; };
 		04F76D7E2C8E1E9100DF30C0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 04F76D7D2C8E1E9100DF30C0 /* FirebaseStorageCombine-Community */; };
+		04F76D812C8E201300DF30C0 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D802C8E201300DF30C0 /* AuthenticationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		04F76D662C8E1D5D00DF30C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04F76D692C8E1D5D00DF30C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04F76D702C8E1E3F00DF30C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04F76D802C8E201300DF30C0 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 		04F76D612C8E1D5B00DF30C0 /* MessagingApp */ = {
 			isa = PBXGroup;
 			children = (
+				04F76D7F2C8E1FF400DF30C0 /* Authentication */,
 				04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */,
 				04F76D642C8E1D5B00DF30C0 /* ContentView.swift */,
 				04F76D702C8E1E3F00DF30C0 /* GoogleService-Info.plist */,
@@ -80,6 +83,14 @@
 				04F76D692C8E1D5D00DF30C0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		04F76D7F2C8E1FF400DF30C0 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				04F76D802C8E201300DF30C0 /* AuthenticationModel.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F76D812C8E201300DF30C0 /* AuthenticationModel.swift in Sources */,
 				04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */,
 				04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */,
 			);
