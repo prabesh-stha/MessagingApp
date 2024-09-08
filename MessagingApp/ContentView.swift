@@ -8,14 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showSignIn: Bool = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack{
+            if showSignIn{
+                NavigationStack{
+                    AuthenticationView(showSignIn: $showSignIn)
+                }
+            }else{
+                TabView{
+                    NavigationStack{
+                        HomeView(showSignIn: $showSignIn)
+                            .navigationTitle("Home")
+                    }
+                    .tabItem {
+                        Label("Home", systemImage: "house")
+                    }
+                }
+            }
         }
-        .padding()
+            .onAppear{
+                Task{
+                    do{
+                        if try AuthenticationManager.shared.getUser() == nil{
+                            showSignIn = true
+                        }
+                        else{
+                            showSignIn = false
+                        }
+                    }
+                }
+            }
+
     }
 }
 
