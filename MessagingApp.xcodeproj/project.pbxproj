@@ -13,6 +13,7 @@
 		041A682F2C8EB0E000392037 /* LargeButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A682E2C8EB0E000392037 /* LargeButtonModifier.swift */; };
 		041A683A2C8EC22800392037 /* CustomSecureFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68392C8EC22800392037 /* CustomSecureFiled.swift */; };
 		041A683E2C8EC98700392037 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A683D2C8EC98700392037 /* CustomTextField.swift */; };
+		041A68402C8ED5A600392037 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A683F2C8ED5A600392037 /* CustomProgressView.swift */; };
 		04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */; };
 		04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D642C8E1D5B00DF30C0 /* ContentView.swift */; };
 		04F76D672C8E1D5D00DF30C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F76D662C8E1D5D00DF30C0 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		041A682E2C8EB0E000392037 /* LargeButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonModifier.swift; sourceTree = "<group>"; };
 		041A68392C8EC22800392037 /* CustomSecureFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureFiled.swift; sourceTree = "<group>"; };
 		041A683D2C8EC98700392037 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		041A683F2C8ED5A600392037 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		04F76D5F2C8E1D5B00DF30C0 /* MessagingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingAppApp.swift; sourceTree = "<group>"; };
 		04F76D642C8E1D5B00DF30C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				041A683D2C8EC98700392037 /* CustomTextField.swift */,
 				041A68392C8EC22800392037 /* CustomSecureFiled.swift */,
+				041A683F2C8ED5A600392037 /* CustomProgressView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			files = (
 				04F76D812C8E201300DF30C0 /* AuthenticationModel.swift in Sources */,
 				04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */,
+				041A68402C8ED5A600392037 /* CustomProgressView.swift in Sources */,
 				041A682F2C8EB0E000392037 /* LargeButtonModifier.swift in Sources */,
 				041A683E2C8EC98700392037 /* CustomTextField.swift in Sources */,
 				04F76D832C8E20CC00DF30C0 /* AuthenticationView.swift in Sources */,

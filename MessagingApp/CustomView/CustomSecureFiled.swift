@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomSecureFiled: View {
     @Binding var text: String
-    @Binding var showPassword: Bool
+    @State var showPassword: Bool = false
     let icon: String
     let placeholder: String
     var body: some View {
@@ -42,5 +42,5 @@ struct CustomSecureFiled: View {
 }
 
 #Preview {
-    CustomSecureFiled(text: .constant(""), showPassword: .constant(false), icon: "lock", placeholder: "Password")
+    CustomSecureFiled(text: .constant(""), icon: "lock", placeholder: "Password")
 }
