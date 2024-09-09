@@ -15,6 +15,11 @@
 		041A683E2C8EC98700392037 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A683D2C8EC98700392037 /* CustomTextField.swift */; };
 		041A68402C8ED5A600392037 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A683F2C8ED5A600392037 /* CustomProgressView.swift */; };
 		041A68432C8EDB0000392037 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68422C8EDB0000392037 /* UserModel.swift */; };
+		041A68452C8EDBA100392037 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68442C8EDBA100392037 /* UserManager.swift */; };
+		041A68472C8EDDBC00392037 /* UserStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68462C8EDDBC00392037 /* UserStorageManager.swift */; };
+		041A684C2C8EE0D800392037 /* NewUserFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A684B2C8EE0D800392037 /* NewUserFormViewModel.swift */; };
+		041A684E2C8EE0E500392037 /* NewUserFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A684D2C8EE0E500392037 /* NewUserFormView.swift */; };
+		041A68512C8EF8CC00392037 /* FormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68502C8EF8CC00392037 /* FormValidation.swift */; };
 		04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */; };
 		04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D642C8E1D5B00DF30C0 /* ContentView.swift */; };
 		04F76D672C8E1D5D00DF30C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F76D662C8E1D5D00DF30C0 /* Assets.xcassets */; };
@@ -40,6 +45,11 @@
 		041A683D2C8EC98700392037 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		041A683F2C8ED5A600392037 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		041A68422C8EDB0000392037 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		041A68442C8EDBA100392037 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		041A68462C8EDDBC00392037 /* UserStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorageManager.swift; sourceTree = "<group>"; };
+		041A684B2C8EE0D800392037 /* NewUserFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserFormViewModel.swift; sourceTree = "<group>"; };
+		041A684D2C8EE0E500392037 /* NewUserFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserFormView.swift; sourceTree = "<group>"; };
+		041A68502C8EF8CC00392037 /* FormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidation.swift; sourceTree = "<group>"; };
 		04F76D5F2C8E1D5B00DF30C0 /* MessagingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingAppApp.swift; sourceTree = "<group>"; };
 		04F76D642C8E1D5B00DF30C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,9 +108,29 @@
 		041A68412C8EDAF400392037 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				041A684A2C8EE0C000392037 /* New user */,
 				041A68422C8EDB0000392037 /* UserModel.swift */,
+				041A68442C8EDBA100392037 /* UserManager.swift */,
+				041A68462C8EDDBC00392037 /* UserStorageManager.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		041A684A2C8EE0C000392037 /* New user */ = {
+			isa = PBXGroup;
+			children = (
+				041A684B2C8EE0D800392037 /* NewUserFormViewModel.swift */,
+				041A684D2C8EE0E500392037 /* NewUserFormView.swift */,
+			);
+			path = "New user";
+			sourceTree = "<group>";
+		};
+		041A684F2C8EF8BD00392037 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				041A68502C8EF8CC00392037 /* FormValidation.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		04F76D562C8E1D5B00DF30C0 = {
@@ -122,6 +152,7 @@
 		04F76D612C8E1D5B00DF30C0 /* MessagingApp */ = {
 			isa = PBXGroup;
 			children = (
+				041A684F2C8EF8BD00392037 /* Utility */,
 				041A68412C8EDAF400392037 /* User */,
 				041A68342C8EC0A100392037 /* CustomView */,
 				041A682D2C8EB0A800392037 /* Modifier */,
@@ -247,13 +278,18 @@
 			files = (
 				04F76D812C8E201300DF30C0 /* AuthenticationModel.swift in Sources */,
 				04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */,
+				041A68452C8EDBA100392037 /* UserManager.swift in Sources */,
 				041A68402C8ED5A600392037 /* CustomProgressView.swift in Sources */,
 				041A682F2C8EB0E000392037 /* LargeButtonModifier.swift in Sources */,
+				041A684C2C8EE0D800392037 /* NewUserFormViewModel.swift in Sources */,
+				041A68512C8EF8CC00392037 /* FormValidation.swift in Sources */,
 				041A683E2C8EC98700392037 /* CustomTextField.swift in Sources */,
 				041A68432C8EDB0000392037 /* UserModel.swift in Sources */,
 				04F76D832C8E20CC00DF30C0 /* AuthenticationView.swift in Sources */,
+				041A684E2C8EE0E500392037 /* NewUserFormView.swift in Sources */,
 				041A682C2C8E2AD600392037 /* EmailViewModel.swift in Sources */,
 				041A682A2C8E2ACE00392037 /* EmailView.swift in Sources */,
+				041A68472C8EDDBC00392037 /* UserStorageManager.swift in Sources */,
 				041A68272C8E26A300392037 /* AuthenticationManager.swift in Sources */,
 				04F76D852C8E22CA00DF30C0 /* HomeView.swift in Sources */,
 				04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */,
