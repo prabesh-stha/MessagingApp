@@ -10,6 +10,7 @@
 		041A68272C8E26A300392037 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68262C8E26A300392037 /* AuthenticationManager.swift */; };
 		041A682A2C8E2ACE00392037 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68292C8E2ACE00392037 /* EmailView.swift */; };
 		041A682C2C8E2AD600392037 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A682B2C8E2AD600392037 /* EmailViewModel.swift */; };
+		041A682F2C8EB0E000392037 /* LargeButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A682E2C8EB0E000392037 /* LargeButtonModifier.swift */; };
 		04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */; };
 		04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D642C8E1D5B00DF30C0 /* ContentView.swift */; };
 		04F76D672C8E1D5D00DF30C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F76D662C8E1D5D00DF30C0 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		041A68262C8E26A300392037 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		041A68292C8E2ACE00392037 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		041A682B2C8E2AD600392037 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		041A682E2C8EB0E000392037 /* LargeButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonModifier.swift; sourceTree = "<group>"; };
 		04F76D5F2C8E1D5B00DF30C0 /* MessagingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingAppApp.swift; sourceTree = "<group>"; };
 		04F76D642C8E1D5B00DF30C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 			path = Email;
 			sourceTree = "<group>";
 		};
+		041A682D2C8EB0A800392037 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				041A682E2C8EB0E000392037 /* LargeButtonModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
 		04F76D562C8E1D5B00DF30C0 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		04F76D612C8E1D5B00DF30C0 /* MessagingApp */ = {
 			isa = PBXGroup;
 			children = (
+				041A682D2C8EB0A800392037 /* Modifier */,
 				04F76D862C8E22D200DF30C0 /* Home */,
 				04F76D7F2C8E1FF400DF30C0 /* Authentication */,
 				04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */,
@@ -208,6 +219,7 @@
 			files = (
 				04F76D812C8E201300DF30C0 /* AuthenticationModel.swift in Sources */,
 				04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */,
+				041A682F2C8EB0E000392037 /* LargeButtonModifier.swift in Sources */,
 				04F76D832C8E20CC00DF30C0 /* AuthenticationView.swift in Sources */,
 				041A682C2C8E2AD600392037 /* EmailViewModel.swift in Sources */,
 				041A682A2C8E2ACE00392037 /* EmailView.swift in Sources */,
