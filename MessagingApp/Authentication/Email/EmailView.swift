@@ -14,48 +14,48 @@ struct EmailView: View {
     @State private var showProgressView: Bool = false
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading){
-                Text("Email")
-                    .font(.headline)
-                    .padding(.horizontal, 3)
-                TextField("Enter email", text: $viewModel.email)
-                    .fieldModifier()
-                Text("Password")
-                    .font(.headline)
-                    .padding(.horizontal, 3)
-                HStack{
-                    if showPassword{
-                        TextField("Enter password", text: $viewModel.password)
-                            .fieldModifier()
-                    }else{
-                        SecureField("Enter password", text: $viewModel.password)
-                            .fieldModifier()
-                    }
-                    
-
-                }.overlay(alignment: .trailing) {
-                    Button {
-                        showPassword.toggle()
-                    } label: {
-                        Image(systemName: showPassword ? "eye.slash" : "eye")
-                    }
-                    .padding()
-                }
+            VStack{
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .padding(.bottom, 100)
+                CustomTextField(text: $viewModel.email, icon: "person", placeholder: "Email")
+                    .padding(.bottom, 25)
+                CustomSecureFiled(text: $viewModel.password, showPassword: $showPassword, icon: "lock", placeholder: "Password")
+                    .padding(.bottom, 30)
                 
-                Button {
-                    Task{
-                        do{
-                            try await viewModel.signIn()
-                            showSignIn = false
-                        }catch{
-                            print("error")
+                VStack{
+                    Button {
+                        Task{
+                            do{
+                                try await viewModel.signIn()
+                                showSignIn = false
+                            }catch{
+                                print("error")
+                            }
                         }
+                    } label: {
+                        Text("Sign In")
+                            .largeButton(color: Color.blue)
+                            
                     }
-                } label: {
-                    Text("Sign In")
                 }
             }
             .padding()
+            Spacer()
+            NavigationLink {
+                Text("Sign up")
+            } label: {
+                VStack{
+                    Text("Not a member?")
+                    Text("Create an account")
+                        .font(.headline)
+                        .padding()
+                        .foregroundStyle(Color.white)
+                        .background(Color.purple)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))                       }
+            }
+            .navigationTitle("Sign in")
         }
 
     }

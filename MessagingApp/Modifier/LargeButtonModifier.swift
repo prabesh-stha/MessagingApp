@@ -17,8 +17,7 @@ struct LargeButtonModifier: ViewModifier{
             .frame(height: 55)
             .foregroundStyle(Color.white)
             .background(color)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .padding(/*@START_MENU_TOKEN@*/EdgeInsets()/*@END_MENU_TOKEN@*/)
+            .clipShape(RoundedRectangle(cornerRadius: 25))
             
     }
 }
