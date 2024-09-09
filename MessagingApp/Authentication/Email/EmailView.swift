@@ -11,6 +11,7 @@ struct EmailView: View {
     @StateObject private var viewModel =  EmailViewModel()
     @Binding var showSignIn: Bool
     @State private var showPassword: Bool = false
+    @State private var showProgressView: Bool = false
     var body: some View {
         NavigationStack {
             VStack{
