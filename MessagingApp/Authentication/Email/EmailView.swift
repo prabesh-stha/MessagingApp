@@ -27,7 +27,7 @@ struct EmailView: View {
                     VStack {
                         Button {
                             viewModel.signIn()
-                            if viewModel.showSignIn{
+                            if !viewModel.showHome{
                                 showSignIn = true
                             }else{
                                 showSignIn = false

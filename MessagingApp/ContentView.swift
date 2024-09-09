@@ -11,22 +11,23 @@ struct ContentView: View {
     @State private var showSignIn: Bool = false
     var body: some View {
         ZStack{
-            if showSignIn{
-                NavigationStack{
-                    AuthenticationView(showSignIn: $showSignIn)
-                }
-            }else{
+            if !showSignIn{
                 TabView{
                     NavigationStack{
-                        HomeView(showSignIn: $showSignIn)
-                            .navigationTitle("Home")
+                        ChatView(showSignIn: $showSignIn)
+                            .navigationTitle("Messages")
                     }
                     .tabItem {
-                        Label("Home", systemImage: "house")
+                        Label("Chats", systemImage: "message")
                     }
                 }
             }
         }
+        .fullScreenCover(isPresented: $showSignIn, content: {
+            NavigationStack{
+                AuthenticationView(showSignIn: $showSignIn)
+            }
+        })
             .onAppear{
                 Task{
                     do{

@@ -9,6 +9,8 @@ import SwiftUI
 import PhotosUI
 
 struct NewUserFormView: View {
+    @FocusState var focusEmail: Bool
+    
     @StateObject private var viewModel = NewUserFormViewModel()
     @Binding var showSignIn: Bool
     var body: some View {
@@ -21,22 +23,22 @@ struct NewUserFormView: View {
                                 .font(.caption)
                                 .foregroundStyle(.red)
                         }
-                            
-                            PhotosPicker(selection: $viewModel.photoPickerItem) {
-                                if let image = viewModel.selectedImage{
-                                    image
-                                        .resizable()
-                                        .frame(width: 300, height: 300)
-                                        .clipShape(Circle())
-                                }else{
-                                    Image(systemName: "mountain.2.circle")
-                                        .resizable()
-                                        .frame(width: 300, height: 300)
-                                        .foregroundStyle(.black)
-                                        
-
-                                }
-                            }.padding(.bottom, 30)
+                        
+                        PhotosPicker(selection: $viewModel.photoPickerItem) {
+                            if let image = viewModel.selectedImage{
+                                image
+                                    .resizable()
+                                    .frame(width: 300, height: 300)
+                                    .clipShape(Circle())
+                            }else{
+                                Image(systemName: "mountain.2.circle")
+                                    .resizable()
+                                    .frame(width: 300, height: 300)
+                                    .foregroundStyle(.black)
+                                
+                                
+                            }
+                        }.padding(.bottom, 30)
                         if let emailError = viewModel.emailError{
                             Text(emailError)
                                 .font(.caption)
@@ -44,11 +46,17 @@ struct NewUserFormView: View {
                         }
                         CustomTextField(text: $viewModel.email, icon: "envelope", placeholder: "Email")
                             .padding(.bottom, 30)
+                            .focused($focusEmail)
+                            .onChange(of: focusEmail) { oldValue, newValue in
+                                if !newValue{
+                                    viewModel.checkExisitingEmail()
+                                }
+                            }
                         if let passwordError = viewModel.passwordError{
-                            Text(passwordError)
-                                .font(.caption)
-                                .foregroundStyle(.red)
-                        }
+                                Text(passwordError)
+                                    .font(.caption)
+                                    .foregroundStyle(.red)
+                            }
                         CustomSecureFiled(text: $viewModel.password, icon: "lock", placeholder: "Password")
                             .padding(.bottom, 30)
                         if let nameError = viewModel.nameError{
@@ -61,7 +69,7 @@ struct NewUserFormView: View {
                         
                         Button {
                             viewModel.signUp()
-                            if viewModel.showSignIn{
+                            if !viewModel.showHome{
                                 showSignIn = true
                             }else{
                                 showSignIn = false
@@ -70,8 +78,8 @@ struct NewUserFormView: View {
                             Text("Sign Up")
                                 .largeButton(color: Color.blue)
                         }
-
-
+                        
+                        
                         
                     }
                     .onChange(of: viewModel.photoPickerItem, { oldValue, newValue in

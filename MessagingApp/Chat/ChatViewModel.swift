@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  ChatViewModel.swift
 //  MessagingApp
 //
 //  Created by Prabesh Shrestha on 09/09/2024.
@@ -9,7 +9,7 @@ import Foundation
 
 
 @MainActor
-final class HomeViewModel: ObservableObject{
+final class ChatViewModel: ObservableObject{
     @Published var showAlert: Bool = false
     @Published var showProgressView: Bool = false
     @Published var message: String = ""

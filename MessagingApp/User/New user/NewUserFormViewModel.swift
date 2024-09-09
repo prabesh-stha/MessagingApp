@@ -12,12 +12,13 @@ import FirebaseAuth
 
 @MainActor
 final class NewUserFormViewModel: ObservableObject{
-    @Published var showSignIn: Bool = false
+    @Published var showHome: Bool = false
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var userName: String = ""
     @Published var photoPickerItem: PhotosPickerItem? = nil
     @Published var selectedImage: Image? = nil
+    @Published var isValid: Bool = true
     
     //Errors
     @Published var emailError: String? = nil
@@ -30,8 +31,7 @@ final class NewUserFormViewModel: ObservableObject{
     @Published var showAlert: Bool = false
     @Published var message: String = ""
     
-    func validate() -> Bool{
-        var isValid: Bool = true
+    func validate(){
         if !FormValidation.isValidEmail(email){
             emailError = "Please enter valid email"
             isValid = false
@@ -51,7 +51,6 @@ final class NewUserFormViewModel: ObservableObject{
             imageError = "Select a picture"
             isValid = false
         }
-        return isValid
     }
     
     func userImageUrl(item: PhotosPickerItem, userId: String) async throws -> URL{
@@ -63,27 +62,52 @@ final class NewUserFormViewModel: ObservableObject{
         return url
     }
     
-    func signUp(){
-        showProgressView = true
-        guard validate() else { return}
+    func checkExisitingEmail(){
+        print("Hello")
         Task{
             do{
-                if let photoPickerItem{
-                    let auth = try await Auth.auth().createUser(withEmail: email, password: password)
-                    let imageUrl = try await userImageUrl(item: photoPickerItem, userId: auth.user.uid).absoluteString
-                    let user = UserModel(userId: auth.user.uid, userName: userName, email: email, imageUrl: imageUrl)
-                    try await UserManager.shared.createNewUser(user: user)
-                    showProgressView = false
-                    showSignIn = false
+                let emailExists = try await UserManager.shared.checkEmail(email: email.lowercased())
+                print(emailExists)
+                if emailExists{
+                    emailError = "Email already exists. Please enter a different email."
+                    isValid = false
+                }else{
+                    emailError = nil
+                    isValid = true
                 }
-
             }catch{
-                showProgressView = false
-                message = "Error while signing up"
-                showAlert = true
-                showSignIn = true
+                print("Error while fetching")
             }
         }
+        
+    }
+    
+    func signUp(){
+        showProgressView = true
+        validate()
+        if isValid{
+            Task{
+                do{
+                    if let photoPickerItem{
+                        let auth = try await Auth.auth().createUser(withEmail: email, password: password)
+                        let imageUrl = try await userImageUrl(item: photoPickerItem, userId: auth.user.uid).absoluteString
+                        let user = UserModel(userId: auth.user.uid, userName: userName, email: email, imageUrl: imageUrl)
+                        try await UserManager.shared.createNewUser(user: user)
+                        showProgressView = false
+                        showHome = true
+                    }
+
+                }catch{
+                    showProgressView = false
+                    message = "Error while signing up"
+                    showAlert = true
+                    showHome = false
+                }
+            }
+        }else{
+            showProgressView = false
+        }
+        
 }
     
     func loadImage(){

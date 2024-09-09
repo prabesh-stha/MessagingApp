@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  ChatView.swift
 //  MessagingApp
 //
 //  Created by Prabesh Shrestha on 09/09/2024.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct ChatView: View {
     @Binding var showSignIn: Bool
-    @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var viewModel = ChatViewModel()
     var body: some View {
         NavigationStack{
             VStack{
@@ -42,5 +42,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(showSignIn: .constant(false))
+    ChatView(showSignIn: .constant(false))
 }

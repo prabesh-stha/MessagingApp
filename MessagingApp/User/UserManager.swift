@@ -32,4 +32,19 @@ class UserManager{
         ]
         try await userDocument(userId: user.userId).setData(data)
     }
+    
+    func checkEmail(email: String) async throws -> Bool{
+        let document = userCollection.whereField(UserModel.CodingKeys.email.rawValue, isEqualTo: email.lowercased())
+        let querySnapshot = try await document.getDocuments()
+        var users: [UserModel] = []
+        for document in querySnapshot.documents{
+            let user = try document.data(as: UserModel.self)
+            users.append(user)
+        }
+        if users.isEmpty{
+            return false
+        }
+        return true
+        
+    }
 }

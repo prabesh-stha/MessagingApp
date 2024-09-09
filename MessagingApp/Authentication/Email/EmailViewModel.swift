@@ -15,7 +15,7 @@ final class EmailViewModel: ObservableObject{
     @Published var showAlert: Bool = false
     @Published var message: String = ""
     
-    @Published var showSignIn: Bool = false
+    @Published var showHome: Bool = false
 
     func signIn(){
         Task{
@@ -23,12 +23,12 @@ final class EmailViewModel: ObservableObject{
                 showProgressView = true
                 try await AuthenticationManager.shared.signIn(email: email, password: password)
                 showProgressView = false
-                showSignIn = false
+                showHome = true
             }catch{
                 showProgressView = false
                 message = "Invalid login attempt"
                 showAlert = true
-                showSignIn = true
+                showHome = false
             }
         }
     }
