@@ -26,7 +26,12 @@ struct EmailView: View {
                     
                     VStack {
                         Button {
-                            showSignIn = viewModel.signIn()
+                            viewModel.signIn()
+                            if viewModel.showSignIn{
+                                showSignIn = true
+                            }else{
+                                showSignIn = false
+                            }
                         } label: {
                             Text("Sign In")
                                 .largeButton(color: Color.blue)
@@ -42,7 +47,7 @@ struct EmailView: View {
                 Spacer()
                 
                 NavigationLink {
-                    Text("Sign up")
+                    NewUserFormView(showSignIn: $showSignIn)
                 } label: {
                     VStack {
                         Text("Not a member?")

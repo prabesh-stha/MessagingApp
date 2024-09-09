@@ -60,7 +60,12 @@ struct NewUserFormView: View {
                             .padding(.bottom, 30)
                         
                         Button {
-                            showSignIn = viewModel.signUp()
+                            viewModel.signUp()
+                            if viewModel.showSignIn{
+                                showSignIn = true
+                            }else{
+                                showSignIn = false
+                            }
                         } label: {
                             Text("Sign Up")
                                 .largeButton(color: Color.blue)

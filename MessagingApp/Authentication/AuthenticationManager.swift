@@ -26,4 +26,8 @@ final class AuthenticationManager{
             return nil
         }
     }
+    
+    func signOut() throws{
+        try Auth.auth().signOut()
+    }
 }

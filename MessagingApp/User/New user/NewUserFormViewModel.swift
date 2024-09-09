@@ -12,6 +12,7 @@ import FirebaseAuth
 
 @MainActor
 final class NewUserFormViewModel: ObservableObject{
+    @Published var showSignIn: Bool = false
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var userName: String = ""
@@ -62,10 +63,9 @@ final class NewUserFormViewModel: ObservableObject{
         return url
     }
     
-    func signUp()-> Bool{
+    func signUp(){
         showProgressView = true
-        guard validate() else { showProgressView = false
-            return true}
+        guard validate() else { return}
         Task{
             do{
                 if let photoPickerItem{
@@ -74,18 +74,16 @@ final class NewUserFormViewModel: ObservableObject{
                     let user = UserModel(userId: auth.user.uid, userName: userName, email: email, imageUrl: imageUrl)
                     try await UserManager.shared.createNewUser(user: user)
                     showProgressView = false
-                    return false
+                    showSignIn = false
                 }
 
             }catch{
                 showProgressView = false
                 message = "Error while signing up"
                 showAlert = true
-                return true
+                showSignIn = true
             }
-            return true
         }
-        return true
 }
     
     func loadImage(){

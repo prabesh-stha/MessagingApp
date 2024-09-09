@@ -20,8 +20,8 @@ final class UserStorageManager{
     
     func saveImage(userId: String, data: Data) async throws -> String{
         let metaData = StorageMetadata()
-        metaData.contentType = "jpeg/png"
-        let data = try await userReference(userId: userId).putDataAsync(data, metadata: metaData)
+        metaData.contentType = "image/jpeg"
+        let data = try await userReference(userId: userId).child(userId).putDataAsync(data, metadata: metaData)
         
         guard let path = data.path else{ throw URLError(.badURL)}
         return path

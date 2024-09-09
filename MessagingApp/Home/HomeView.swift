@@ -9,9 +9,33 @@ import SwiftUI
 
 struct HomeView: View {
     @Binding var showSignIn: Bool
+    @StateObject private var viewModel = HomeViewModel()
     var body: some View {
-        VStack{
-            Text("Hello")
+        NavigationStack{
+            VStack{
+                Text("Hello")
+            }
+            .toolbar {
+                ToolbarItem(placement: .destructiveAction) {
+                    Button {
+                        viewModel.signOut()
+                    } label: {
+                        Image(systemName: "person.circle")
+                    }
+
+                }
+            }
+            .alert("", isPresented: $viewModel.showAlert) {
+                Button("OK", role: .cancel){
+                    if viewModel.showSignIn{
+                        showSignIn = true
+                    }else{
+                        showSignIn = false
+                    }
+                }
+            } message: {
+                Text(viewModel.message)
+            }
         }
         
     }

@@ -26,8 +26,8 @@ class UserManager{
         let data: [String: Any] =
         [
             UserModel.CodingKeys.userId.rawValue : user.userId,
-            UserModel.CodingKeys.userName.rawValue : user.userName,
-            UserModel.CodingKeys.email.rawValue : user.email,
+            UserModel.CodingKeys.userName.rawValue : user.userName.lowercased(),
+            UserModel.CodingKeys.email.rawValue : user.email.lowercased(),
             UserModel.CodingKeys.imageUrl.rawValue : user.imageUrl
         ]
         try await userDocument(userId: user.userId).setData(data)
