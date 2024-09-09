@@ -14,9 +14,33 @@ struct EmailView: View {
     @State private var showProgressView: Bool = false
     var body: some View {
         NavigationStack {
-            VStack{
+            VStack(alignment: .leading){
+                Text("Email")
+                    .font(.headline)
+                    .padding(.horizontal, 3)
                 TextField("Enter email", text: $viewModel.email)
-                TextField("Enter password", text: $viewModel.password)
+                    .fieldModifier()
+                Text("Password")
+                    .font(.headline)
+                    .padding(.horizontal, 3)
+                HStack{
+                    if showPassword{
+                        TextField("Enter password", text: $viewModel.password)
+                            .fieldModifier()
+                    }else{
+                        SecureField("Enter password", text: $viewModel.password)
+                            .fieldModifier()
+                    }
+                    
+
+                }.overlay(alignment: .trailing) {
+                    Button {
+                        showPassword.toggle()
+                    } label: {
+                        Image(systemName: showPassword ? "eye.slash" : "eye")
+                    }
+                    .padding()
+                }
                 
                 Button {
                     Task{
@@ -31,6 +55,7 @@ struct EmailView: View {
                     Text("Sign In")
                 }
             }
+            .padding()
         }
 
     }
