@@ -13,10 +13,13 @@ struct EmailView: View {
         ZStack {
             NavigationStack {
                 VStack {
-                    Image(systemName: "person.circle")
+                    Image("ChatSwift")
                         .resizable()
-                        .frame(width: 150, height: 150)
-                        .padding(.bottom, 100)
+                        .frame(width: 250, height: 250)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                        .padding(.bottom)
+                        .padding(.top)
+                        
                     
                     CustomTextField(text: $viewModel.email, icon: "envelope", placeholder: "Email")
                         .padding(.bottom, 25)
@@ -24,7 +27,6 @@ struct EmailView: View {
                     CustomSecureFiled(text: $viewModel.password, icon: "lock", placeholder: "Password")
                         .padding(.bottom, 30)
                     
-                    VStack {
                         Button {
                             Task{
                                 showSignIn = try await !viewModel.signIn()
@@ -34,7 +36,23 @@ struct EmailView: View {
                             Text("Sign In")
                                 .largeButton(color: Color.blue)
                         }
+                        .padding(.bottom, 20)
+                    
+                    NavigationLink {
+                        NewUserFormView(showSignIn: $showSignIn)
+                    } label: {
+                        VStack {
+                            Text("Not a member?")
+                            Text("Create an account")
+                                .font(.headline)
+                                .padding()
+                                .foregroundStyle(Color.white)
+                                .background(Color.purple)
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                        }
                     }
+                    .navigationTitle("Sign in")
+                }
                 }
                 .alert("", isPresented: $viewModel.showAlert) {
                     Button("OK", role: .cancel) {}
@@ -42,29 +60,14 @@ struct EmailView: View {
                     Text(viewModel.message)
                 }
                 .padding()
-                Spacer()
                 
-                NavigationLink {
-                    NewUserFormView(showSignIn: $showSignIn)
-                } label: {
-                    VStack {
-                        Text("Not a member?")
-                        Text("Create an account")
-                            .font(.headline)
-                            .padding()
-                            .foregroundStyle(Color.white)
-                            .background(Color.purple)
-                            .clipShape(RoundedRectangle(cornerRadius: 25))
-                    }
-                }
-                .navigationTitle("Sign in")
-            }
             if viewModel.showProgressView {
                 CustomProgressView()
                 
                 
             }
         }
+        .ignoresSafeArea()
         
     }
 }

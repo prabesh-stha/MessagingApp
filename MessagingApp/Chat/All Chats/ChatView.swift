@@ -25,7 +25,7 @@ struct ParticipantView: View {
                         .padding(.trailing)
                 }
             }
-            Text(user.userName)
+            Text(user.userName.capitalizeFirstLetters())
         }
     }
 }
