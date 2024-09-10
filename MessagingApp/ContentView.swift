@@ -20,6 +20,13 @@ struct ContentView: View {
                     .tabItem {
                         Label("Chats", systemImage: "message")
                     }
+                    NavigationStack{
+                        SettingView(showSignIn: $showSignIn)
+                            .navigationTitle("Settings")
+                    }
+                    .tabItem {
+                        Label("Setting", systemImage: "gear")
+                    }
                 }
             }
         }

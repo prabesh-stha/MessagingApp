@@ -18,26 +18,16 @@ struct ChatView: View {
             .toolbar {
                 ToolbarItem(placement: .destructiveAction) {
                     Button {
-                        viewModel.signOut()
+                        
                     } label: {
-                        Image(systemName: "person.circle")
+                        Image(systemName: "square.and.pencil")
+                            .foregroundStyle(.black)
                     }
 
                 }
-            }
-            .alert("", isPresented: $viewModel.showAlert) {
-                Button("OK", role: .cancel){
-                    if viewModel.showSignIn{
-                        showSignIn = true
-                    }else{
-                        showSignIn = false
-                    }
-                }
-            } message: {
-                Text(viewModel.message)
+                
             }
         }
-        
     }
 }
 

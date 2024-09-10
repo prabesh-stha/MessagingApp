@@ -22,6 +22,8 @@
 		041A68512C8EF8CC00392037 /* FormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68502C8EF8CC00392037 /* FormValidation.swift */; };
 		041A68532C8F062600392037 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68522C8F062600392037 /* ChatViewModel.swift */; };
 		041A68552C8F0B3700392037 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041A68542C8F0B3600392037 /* GoogleService-Info.plist */; };
+		041A68582C8F5B4E00392037 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68572C8F5B4E00392037 /* SettingViewModel.swift */; };
+		041A685A2C8F5B5400392037 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68592C8F5B5400392037 /* SettingView.swift */; };
 		04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */; };
 		04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F76D642C8E1D5B00DF30C0 /* ContentView.swift */; };
 		04F76D672C8E1D5D00DF30C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F76D662C8E1D5D00DF30C0 /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		041A68502C8EF8CC00392037 /* FormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidation.swift; sourceTree = "<group>"; };
 		041A68522C8F062600392037 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		041A68542C8F0B3600392037 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		041A68572C8F5B4E00392037 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		041A68592C8F5B5400392037 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		04F76D5F2C8E1D5B00DF30C0 /* MessagingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F76D622C8E1D5B00DF30C0 /* MessagingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingAppApp.swift; sourceTree = "<group>"; };
 		04F76D642C8E1D5B00DF30C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +139,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		041A68562C8F5B4100392037 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				041A68572C8F5B4E00392037 /* SettingViewModel.swift */,
+				041A68592C8F5B5400392037 /* SettingView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		04F76D562C8E1D5B00DF30C0 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +167,7 @@
 		04F76D612C8E1D5B00DF30C0 /* MessagingApp */ = {
 			isa = PBXGroup;
 			children = (
+				041A68562C8F5B4100392037 /* Setting */,
 				041A684F2C8EF8BD00392037 /* Utility */,
 				041A68412C8EDAF400392037 /* User */,
 				041A68342C8EC0A100392037 /* CustomView */,
@@ -282,6 +296,7 @@
 				041A68532C8F062600392037 /* ChatViewModel.swift in Sources */,
 				04F76D812C8E201300DF30C0 /* AuthenticationModel.swift in Sources */,
 				04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */,
+				041A685A2C8F5B5400392037 /* SettingView.swift in Sources */,
 				041A68452C8EDBA100392037 /* UserManager.swift in Sources */,
 				041A68402C8ED5A600392037 /* CustomProgressView.swift in Sources */,
 				041A682F2C8EB0E000392037 /* LargeButtonModifier.swift in Sources */,
@@ -294,6 +309,7 @@
 				041A682C2C8E2AD600392037 /* EmailViewModel.swift in Sources */,
 				041A682A2C8E2ACE00392037 /* EmailView.swift in Sources */,
 				041A68472C8EDDBC00392037 /* UserStorageManager.swift in Sources */,
+				041A68582C8F5B4E00392037 /* SettingViewModel.swift in Sources */,
 				041A68272C8E26A300392037 /* AuthenticationManager.swift in Sources */,
 				04F76D852C8E22CA00DF30C0 /* ChatView.swift in Sources */,
 				04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */,

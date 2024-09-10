@@ -12,7 +12,6 @@ import FirebaseAuth
 
 @MainActor
 final class NewUserFormViewModel: ObservableObject{
-    @Published var showHome: Bool = false
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var userName: String = ""
@@ -40,16 +39,22 @@ final class NewUserFormViewModel: ObservableObject{
         if !FormValidation.validatePassword(password){
             passwordError = "Password must be at least 8 characters long, contain at least one letter, and at least one number."
             isValid = false
+        }else{
+            passwordError = nil
         }
         
         if !FormValidation.validateFullName(userName){
             nameError = "Enter full name"
             isValid = false
+        }else{
+            nameError = nil
         }
         
         if photoPickerItem == nil {
             imageError = "Select a picture"
             isValid = false
+        }else{
+            imageError = nil
         }
     }
     
@@ -63,11 +68,9 @@ final class NewUserFormViewModel: ObservableObject{
     }
     
     func checkExisitingEmail(){
-        print("Hello")
         Task{
             do{
                 let emailExists = try await UserManager.shared.checkEmail(email: email.lowercased())
-                print(emailExists)
                 if emailExists{
                     emailError = "Email already exists. Please enter a different email."
                     isValid = false
@@ -82,11 +85,11 @@ final class NewUserFormViewModel: ObservableObject{
         
     }
     
-    func signUp(){
+    func signUp() async throws -> Bool{
+        var showHome: Bool = false
         showProgressView = true
         validate()
         if isValid{
-            Task{
                 do{
                     if let photoPickerItem{
                         let auth = try await Auth.auth().createUser(withEmail: email, password: password)
@@ -103,10 +106,10 @@ final class NewUserFormViewModel: ObservableObject{
                     showAlert = true
                     showHome = false
                 }
-            }
         }else{
             showProgressView = false
         }
+        return showHome
         
 }
     

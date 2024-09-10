@@ -68,11 +68,8 @@ struct NewUserFormView: View {
                             .padding(.bottom, 30)
                         
                         Button {
-                            viewModel.signUp()
-                            if !viewModel.showHome{
-                                showSignIn = true
-                            }else{
-                                showSignIn = false
+                            Task{
+                                showSignIn = try await !viewModel.signUp()
                             }
                         } label: {
                             Text("Sign Up")

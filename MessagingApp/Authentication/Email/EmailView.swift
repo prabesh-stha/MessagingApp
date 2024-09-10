@@ -26,11 +26,9 @@ struct EmailView: View {
                     
                     VStack {
                         Button {
-                            viewModel.signIn()
-                            if !viewModel.showHome{
-                                showSignIn = true
-                            }else{
-                                showSignIn = false
+                            Task{
+                                showSignIn = try await !viewModel.signIn()
+                                
                             }
                         } label: {
                             Text("Sign In")
