@@ -47,4 +47,14 @@ class UserManager{
         return true
         
     }
+    
+    func getAllUser() async throws -> [UserModel]{
+        var users: [UserModel] = []
+        let querySnapshot = try await userCollection.getDocuments()
+        for document in querySnapshot.documents{
+            let user = try document.data(as: UserModel.self)
+            users.append(user)
+        }
+        return users
+    }
 }

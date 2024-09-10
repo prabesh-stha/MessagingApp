@@ -13,6 +13,7 @@ final class ChatViewModel: ObservableObject{
     @Published var chats: [ChatModel] = []
     @Published var users = [String: UserModel]()
     @Published var userId: String = ""
+    @Published var showSheet: Bool = false
     func getAllChat() async throws{
         guard let auth = try AuthenticationManager.shared.getUser() else { return }
         self.userId = auth.uid

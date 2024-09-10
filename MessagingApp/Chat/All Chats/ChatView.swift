@@ -34,22 +34,33 @@ struct ChatView: View {
     @Binding var showSignIn: Bool
     @StateObject private var viewModel = ChatViewModel()
     
+    
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(viewModel.chats, id: \.chatId) { chat in
-                    NavigationLink {
-                        Text("Hello")
-                    } label: {
-                        HStack {
-                            ForEach(chat.participants.filter { $0 != viewModel.userId }, id: \.self) { participantId in
-                                if let user = viewModel.users[participantId] {
-                                    ParticipantView(user: user)
+           
+            VStack {
+                if viewModel.chats.isEmpty{
+                    Text("No chats found")
+                }else{
+                List {
+                        ForEach(viewModel.chats, id: \.chatId) { chat in
+                            NavigationLink {
+                                MessageView(chatId: chat.chatId, userId: viewModel.userId, receiverId: chat.participants.first(where: {$0 != viewModel.userId }) ?? "Unknown")
+                            } label: {
+                                HStack {
+                                    ForEach(chat.participants.filter { $0 != viewModel.userId }, id: \.self) { participantId in
+                                        if let user = viewModel.users[participantId] {
+                                            ParticipantView(user: user)
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
+                    
+
                 }
+                    
             }
             .onAppear {
                 Task {
@@ -60,16 +71,28 @@ struct ChatView: View {
                     }
                 }
             }
+            .onChange(of: viewModel.showSheet, { oldValue, newValue in
+                Task {
+                    do {
+                        try await viewModel.getAllChat()
+                    } catch {
+                        print("Error while fetching chat")
+                    }
+                }
+            })
             .toolbar {
                 ToolbarItem(placement: .destructiveAction) {
                     Button {
-                        // Action for creating a new message
+                        viewModel.showSheet = true
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .foregroundStyle(.black)
                     }
                 }
             }
+            .sheet(isPresented: $viewModel.showSheet, content: {
+                NewChatView()
+        })
         }
     }
 }

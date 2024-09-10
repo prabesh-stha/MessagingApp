@@ -27,7 +27,8 @@ final class ChatManager{
         messageReference(chatId: chatId).document(messageId)
     }
     
-    func createNewChat(chat: ChatModel) async throws{
+    @discardableResult
+    func createNewChat(chat: ChatModel) async throws -> String{
         let document = chatReference.document()
         let documentId = document.documentID
         let data: [String: Any] = [
@@ -35,6 +36,7 @@ final class ChatManager{
             ChatModel.CodingKeys.participants.rawValue : chat.participants
         ]
         try await document.setData(data, merge: false)
+        return documentId
     }
     
     func getChat(userId: String) async throws -> [ChatModel]{
@@ -63,7 +65,7 @@ final class ChatManager{
         let publisher = PassthroughSubject<[MessageModel], Error>()
         messageReference(chatId: chatId).order(by: MessageModel.CodingKeys.timestamp.rawValue, descending: false).addSnapshotListener { querySnapshot, error in
             guard let querySnapshot else{ return}
-            var messages = querySnapshot.documents.compactMap { document in
+            let messages = querySnapshot.documents.compactMap { document in
                 try? document.data(as: MessageModel.self)
             }
             publisher.send(messages)
