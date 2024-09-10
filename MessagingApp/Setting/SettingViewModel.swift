@@ -12,6 +12,7 @@ final class SettingViewModel: ObservableObject{
     @Published var showProgressView: Bool = false
     @Published var message: String = ""
     @Published var showSignIn: Bool = false
+    @Published var confirmAlert: Bool = false
     func signOut(){
         Task{
             do{
@@ -20,7 +21,7 @@ final class SettingViewModel: ObservableObject{
                 showProgressView = false
                 showAlert = true
                 showSignIn = true
-                message = "Signed out"
+                message = "Signed out successfully"
             }catch{
                 showProgressView = false
                 showAlert = true

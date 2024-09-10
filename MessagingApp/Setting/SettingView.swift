@@ -13,12 +13,18 @@ struct SettingView: View {
     var body: some View {
         List{
             Button {
-                viewModel.signOut()
+                viewModel.confirmAlert = true
             } label: {
-                Image(systemName: "person.circle")
+                Text("Log out")
+                    .foregroundStyle(.red)
             }
 
         }
+        .alert("Are you sure?", isPresented: $viewModel.confirmAlert, actions: {
+            Button("Yes", role: .destructive){
+                viewModel.signOut()
+            }
+        })
         .alert("", isPresented: $viewModel.showAlert) {
             Button("OK", role: .cancel){
                 if viewModel.showSignIn{
