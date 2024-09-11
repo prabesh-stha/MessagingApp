@@ -38,18 +38,6 @@ final class ChatManager{
         try await document.setData(data, merge: false)
         return documentId
     }
-    
-    func getChat(userId: String) async throws -> [ChatModel]{
-        var chats: [ChatModel] = []
-        let querySnapshot = try await chatReference.whereField(ChatModel.CodingKeys.participants.rawValue, arrayContains: userId).getDocuments()
-        
-        for document in querySnapshot.documents{
-           let chat =  try document.data(as: ChatModel.self)
-            chats.append(chat)
-        }
-        return chats
-    }
-    
     func addMessage(chatId: String, message: MessageModel) async throws{
         let document = messageReference(chatId: chatId).document()
         let documentId = document.documentID
@@ -97,20 +85,20 @@ final class ChatManager{
             try await document.reference.delete()
         }
     }
-//
-//    func getChat(userId: String) -> AnyPublisher<[ChatModel], Error>{
-//        let publisher = PassthroughSubject<[ChatModel], Error>()
-//        chatReference.whereField(ChatModel.CodingKeys.participants.rawValue, arrayContains: userId).addSnapshotListener { querySnapshot, error in
-//            guard let querySnapshot else{
-//                print("No document.")
-//                return
-//            } 
-//            var chats = querySnapshot.documents.compactMap { document in
-//               try? document.data(as: ChatModel.self)
-//            }
-//            publisher.send(chats)
-//        }
-//        return publisher.eraseToAnyPublisher()
-//    }
+
+    func getChat(userId: String) -> AnyPublisher<[ChatModel], Error>{
+        let publisher = PassthroughSubject<[ChatModel], Error>()
+        chatReference.whereField(ChatModel.CodingKeys.participants.rawValue, arrayContains: userId).addSnapshotListener { querySnapshot, error in
+            guard let querySnapshot else{
+                print("No document.")
+                return
+            } 
+            let chats = querySnapshot.documents.compactMap { document in
+               try? document.data(as: ChatModel.self)
+            }
+            publisher.send(chats)
+        }
+        return publisher.eraseToAnyPublisher()
+    }
     
 }

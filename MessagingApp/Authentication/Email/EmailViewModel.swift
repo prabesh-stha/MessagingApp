@@ -15,7 +15,6 @@ final class EmailViewModel: ObservableObject{
     @Published var showAlert: Bool = false
     @Published var message: String = ""
     
-    
 
     func signIn() async throws -> Bool{
         var showHome: Bool = false

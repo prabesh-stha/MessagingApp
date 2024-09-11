@@ -34,7 +34,6 @@ struct ChatView: View {
     @Binding var showSignIn: Bool
     @StateObject private var viewModel = ChatViewModel()
     
-    
     var body: some View {
         NavigationStack {
            
@@ -75,23 +74,8 @@ struct ChatView: View {
                     
             }
             .onAppear {
-                Task {
-                    do {
-                        try await viewModel.getAllChat()
-                    } catch {
-                        print("Error while fetching chat")
-                    }
-                }
+                viewModel.getUserId()
             }
-            .onChange(of: viewModel.showSheet, { oldValue, newValue in
-                Task {
-                    do {
-                        try await viewModel.getAllChat()
-                    } catch {
-                        print("Error while fetching chat")
-                    }
-                }
-            })
             .toolbar {
                 ToolbarItem(placement: .destructiveAction) {
                     Button {

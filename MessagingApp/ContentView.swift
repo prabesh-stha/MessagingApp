@@ -38,7 +38,8 @@ struct ContentView: View {
             .onAppear{
                 Task{
                     do{
-                        if try AuthenticationManager.shared.getUser() == nil{
+                        let user = try AuthenticationManager.shared.getUser()
+                        if  user == nil{
                             showSignIn = true
                         }
                         else{
