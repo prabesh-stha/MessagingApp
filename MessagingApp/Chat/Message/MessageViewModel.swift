@@ -11,7 +11,7 @@ import Combine
 final class MessageViewModel: ObservableObject{
     @Published var messages: [MessageModel] = []
     @Published var text: String = "Type a message..."
-    @Published var receiver: String = ""
+    @Published var receiver: UserModel?
     private var cancellable = Set<AnyCancellable>()
     
     
@@ -35,7 +35,7 @@ final class MessageViewModel: ObservableObject{
         
         Task{
             do{
-                self.receiver = try await UserManager.shared.getUser(userId: userId).userName
+                self.receiver = try await UserManager.shared.getUser(userId: userId)
             }
         }
     }

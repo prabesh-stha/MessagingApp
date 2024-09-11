@@ -13,6 +13,17 @@ final class SettingViewModel: ObservableObject{
     @Published var message: String = ""
     @Published var showSignIn: Bool = false
     @Published var confirmAlert: Bool = false
+    @Published var user: UserModel? = nil
+    
+    func getUser(){
+        Task{
+            do{
+                if let auth = try AuthenticationManager.shared.getUser(){
+                    user = try await UserManager.shared.getUser(userId: auth.uid)
+                }
+            }
+        }
+    }
     func signOut(){
         Task{
             do{

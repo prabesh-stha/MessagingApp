@@ -8,24 +8,34 @@
 import SwiftUI
 
 struct ParticipantView: View {
-    let user: UserModel
+    let user: UserModel?
     var body: some View {
         HStack {
-            if let url = URL(string: user.imageUrl) {
-                AsyncImage(url: url) { image in
-                    image
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
-                        .padding(.trailing)
-                } placeholder: {
-                    ProgressView()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
-                        .padding(.trailing)
+            if let user = user{
+                if let url = URL(string: user.imageUrl) {
+                    AsyncImage(url: url) { image in
+                        image
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                            .padding(.trailing)
+                    } placeholder: {
+                        ProgressView()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                            .padding(.trailing)
+                    }
                 }
+                Text(user.userName.capitalizeFirstLetters())
+            }else{
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .clipShape(Circle())
+                    .padding(.trailing)
+                Text("Unknown user")
             }
-            Text(user.userName.capitalizeFirstLetters())
+            
         }
     }
 }
@@ -48,9 +58,7 @@ struct ChatView: View {
                             } label: {
                                 HStack {
                                     ForEach(chat.participants.filter { $0 != viewModel.userId }, id: \.self) { participantId in
-                                        if let user = viewModel.users[participantId] {
-                                            ParticipantView(user: user)
-                                        }
+                                            ParticipantView(user: viewModel.users[participantId])
                                     }
                                 }
                             }

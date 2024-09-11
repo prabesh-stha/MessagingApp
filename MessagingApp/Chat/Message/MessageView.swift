@@ -82,11 +82,11 @@ struct MessageView: View {
                     .scaledToFit()
                     .frame(width: 24, height: 24)
                     .padding(10)
-                    .background((viewModel.text == "Type a message..." || viewModel.text.isEmpty) ? Color.gray : Color.blue)
+                    .background((viewModel.text == "Type a message..." || viewModel.text.isEmpty || viewModel.receiver == nil) ? Color.gray : Color.blue)
                     .clipShape(Circle())
                     .foregroundColor(Color.white)
             }
-            .disabled(viewModel.text == "Type a message..." || viewModel.text.isEmpty)
+            .disabled(viewModel.text == "Type a message..." || viewModel.text.isEmpty || viewModel.receiver == nil)
         }
         .padding()
         .background(Color.white)
@@ -96,7 +96,7 @@ struct MessageView: View {
             
         })
         
-        .navigationTitle(viewModel.receiver)
+        .navigationTitle(viewModel.receiver?.userName ?? "Unknown")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
