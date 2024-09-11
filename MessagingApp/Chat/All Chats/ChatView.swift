@@ -55,6 +55,18 @@ struct ChatView: View {
                                     }
                                 }
                             }
+                            .alert("Failed", isPresented: $viewModel.showErrorAlert, actions: {
+                                Button("OK", role: .cancel){}
+                            })
+                            
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false){
+                                Button(role: .destructive){
+                                    viewModel.deleteChat(chatId: chat.chatId)
+                                } label: {
+                                    Image(systemName: "trash")
+                                }
+
+                            }
                         }
                     }
                     

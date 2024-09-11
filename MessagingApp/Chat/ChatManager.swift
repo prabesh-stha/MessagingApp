@@ -84,6 +84,19 @@ final class ChatManager{
         }
         return chat
     }
+    
+    func deleteChat(chatId: String)async throws{
+        try await deleteMessages(in: chatId)
+       try await chatCollection(chatId: chatId).delete()
+    }
+    
+    private func deleteMessages(in chatId: String) async throws {
+        let messagesRef = messageReference(chatId: chatId)
+        let querySnapshot = try await messagesRef.getDocuments()
+        for document in querySnapshot.documents {
+            try await document.reference.delete()
+        }
+    }
 //
 //    func getChat(userId: String) -> AnyPublisher<[ChatModel], Error>{
 //        let publisher = PassthroughSubject<[ChatModel], Error>()

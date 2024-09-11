@@ -14,6 +14,9 @@ final class ChatViewModel: ObservableObject{
     @Published var users = [String: UserModel]()
     @Published var userId: String = ""
     @Published var showSheet: Bool = false
+    @Published var showErrorAlert: Bool = false
+    @Published var message: String = ""
+    
     func getAllChat() async throws{
         guard let auth = try AuthenticationManager.shared.getUser() else { return }
         self.userId = auth.uid
@@ -24,6 +27,17 @@ final class ChatViewModel: ObservableObject{
                 users[userId] = user
             }
             
+        }
+    }
+    
+    func deleteChat(chatId: String){
+        Task{
+            do{
+                try await ChatManager.shared.deleteChat(chatId: chatId)
+            }catch{
+                showErrorAlert = true
+                message = "Unable to delete chat."
+            }
         }
     }
 }
