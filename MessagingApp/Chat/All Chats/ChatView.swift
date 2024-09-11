@@ -91,7 +91,7 @@ struct ChatView: View {
                 }
             }
             .sheet(isPresented: $viewModel.showSheet, content: {
-                NewChatView()
+                NewChatView(userId: viewModel.userId)
         })
         }
     }

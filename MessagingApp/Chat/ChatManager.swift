@@ -72,6 +72,18 @@ final class ChatManager{
         }
         return publisher.eraseToAnyPublisher()
     }
+    
+    func checkExistingChat(userId1: String, userId2: String) async throws -> ChatModel?{
+        var chat: ChatModel?
+        let querySnapshot = try await chatReference.whereField(ChatModel.CodingKeys.participants.rawValue, arrayContains: userId1).getDocuments()
+        for document in querySnapshot.documents{
+            let data = try document.data(as: ChatModel.self)
+            if data.participants.contains(userId2){
+                chat = data
+            }
+        }
+        return chat
+    }
 //
 //    func getChat(userId: String) -> AnyPublisher<[ChatModel], Error>{
 //        let publisher = PassthroughSubject<[ChatModel], Error>()
