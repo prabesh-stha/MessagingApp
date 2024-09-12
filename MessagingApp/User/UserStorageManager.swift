@@ -34,4 +34,8 @@ final class UserStorageManager{
     func getUrl(path: String) async throws -> URL{
         try await getPath(path: path).downloadURL()
     }
+    
+    func deleteImage(userId: String) async throws{
+        try await userReference(userId: userId).child(userId).delete()
+    }
 }

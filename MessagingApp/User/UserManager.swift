@@ -57,4 +57,30 @@ class UserManager{
         }
         return users
     }
+    
+    func changeName(userId: String, name: String) async throws{
+        let data: [String: Any] = [
+            UserModel.CodingKeys.userName.rawValue : name
+        ]
+        try await userDocument(userId: userId).updateData(data)
+    }
+    
+    func changeImageUrl(userId: String, imageUrl: String) async throws{
+        let data: [String: Any] = [
+            UserModel.CodingKeys.imageUrl.rawValue : imageUrl
+        ]
+        try await userDocument(userId: userId).updateData(data)
+    }
+    
+    func changeBoth(userId: String, name: String, imageUrl: String) async throws{
+        let data: [String: Any] = [
+            UserModel.CodingKeys.userName.rawValue : name,
+            UserModel.CodingKeys.imageUrl.rawValue : imageUrl
+        ]
+        try await userDocument(userId: userId).updateData(data)
+    }
+    
+    func deleteUser(userId: String) async throws{
+        try await userDocument(userId: userId).delete()
+    }
 }

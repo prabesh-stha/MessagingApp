@@ -21,7 +21,7 @@ struct EmailView: View {
                         .padding(.top)
                         
                     
-                    CustomTextField(text: $viewModel.email, icon: "envelope", placeholder: "Email")
+                    CustomTextFieldWithIcon(text: $viewModel.email, icon: "envelope", placeholder: "Email")
                         .padding(.bottom, 25)
                     
                     CustomSecureFiled(text: $viewModel.password, icon: "lock", placeholder: "Password")

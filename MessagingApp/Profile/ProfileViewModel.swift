@@ -1,13 +1,15 @@
 //
-//  SettingViewModel.swift
+//  ProfileViewModel.swift
 //  MessagingApp
 //
-//  Created by Prabesh Shrestha on 09/09/2024.
+//  Created by Prabesh Shrestha on 11/09/2024.
 //
 
 import Foundation
+
 @MainActor
-final class SettingViewModel: ObservableObject{
+final class ProfileViewModel: ObservableObject{
+    @Published var user: UserModel? = nil
     @Published var showAlert: Bool = false
     @Published var showProgressView: Bool = false
     @Published var message: String = ""
@@ -28,6 +30,16 @@ final class SettingViewModel: ObservableObject{
                 showAlert = true
                 showSignIn = false
                 message = "Failed while signing out"
+            }
+        }
+    }
+    
+    func getUser(){
+        Task{
+            do{
+                if let auth = try AuthenticationManager.shared.getUser(){
+                    user = try await UserManager.shared.getUser(userId: auth.uid)
+                }
             }
         }
     }

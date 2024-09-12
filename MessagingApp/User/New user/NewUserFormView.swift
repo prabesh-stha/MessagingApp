@@ -44,7 +44,7 @@ struct NewUserFormView: View {
                                 .font(.caption)
                                 .foregroundStyle(.red)
                         }
-                        CustomTextField(text: $viewModel.email, icon: "envelope", placeholder: "Email")
+                        CustomTextFieldWithIcon(text: $viewModel.email, icon: "envelope", placeholder: "Email")
                             .padding(.bottom, 30)
                             .focused($focusEmail)
                             .onChange(of: focusEmail) { oldValue, newValue in
@@ -64,7 +64,7 @@ struct NewUserFormView: View {
                                 .font(.caption)
                                 .foregroundStyle(.red)
                         }
-                        CustomTextField(text: $viewModel.userName, icon: "person", placeholder: "User Name")
+                        CustomTextFieldWithIcon(text: $viewModel.userName, icon: "person", placeholder: "User Name")
                             .padding(.bottom, 30)
                         
                         Button {

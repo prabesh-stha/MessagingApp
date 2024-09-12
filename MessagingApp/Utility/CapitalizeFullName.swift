@@ -16,6 +16,10 @@ extension String {
         func capitalizeFirstLetter() -> String {
             self.prefix(1).capitalized + self.dropFirst()
             }
+    
+    func firstName() -> String?{
+        self.components(separatedBy: " ").first?.capitalizeFirstLetter()
+    }
 
 
 }

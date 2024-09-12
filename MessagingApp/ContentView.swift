@@ -21,11 +21,11 @@ struct ContentView: View {
                         Label("Chats", systemImage: "message")
                     }
                     NavigationStack{
-                        SettingView(showSignIn: $showSignIn)
-                            .navigationTitle("Settings")
+                        ProfileView(showSignIn: $showSignIn)
+                            .navigationTitle("Profile")
                     }
                     .tabItem {
-                        Label("Setting", systemImage: "gear")
+                        Label("Profile", systemImage: "person")
                     }
                 }
             }
