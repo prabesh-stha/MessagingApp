@@ -37,7 +37,7 @@ final class ProfileViewModel: ObservableObject{
     func getUser(){
         Task{
             do{
-                if let auth = try AuthenticationManager.shared.getUser(){
+                if let auth = try AuthenticationManager.shared.getAuthenticatedUser(){
                     user = try await UserManager.shared.getUser(userId: auth.uid)
                 }
             }

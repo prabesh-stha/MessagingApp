@@ -21,7 +21,7 @@ final class ChatViewModel: ObservableObject{
     func getUserId(){
         Task{
             do {
-                if let user = try AuthenticationManager.shared.getUser(){
+                if let user = try AuthenticationManager.shared.getAuthenticatedUser(){
                     userId = user.uid
                     getChat()
                 }

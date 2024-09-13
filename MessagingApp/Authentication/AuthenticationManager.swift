@@ -11,6 +11,10 @@ import FirebaseAuth
 final class AuthenticationManager{
     static let shared = AuthenticationManager()
     private init(){}
+    
+    func getUser() -> User?{
+        Auth.auth().currentUser
+    }
     @discardableResult
     func signIn(email: String, password: String) async throws -> AuthenticationModel{
         let auth = try await Auth.auth().signIn(withEmail: email, password: password)
@@ -18,7 +22,7 @@ final class AuthenticationManager{
     }
     
     @discardableResult
-    func getUser() throws -> AuthenticationModel?{
+    func getAuthenticatedUser() throws -> AuthenticationModel?{
         let auth = Auth.auth().currentUser
         if let auth{
             return AuthenticationModel(user: auth)
@@ -36,10 +40,12 @@ final class AuthenticationManager{
         try await user.delete()
     }
     
-    func reAuthentication(email: String, password: String) async throws{
+    @discardableResult
+    func reAuthentication(email: String, password: String) async throws -> User{
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         guard let user = Auth.auth().currentUser else { throw URLError(.badURL)}
         try await user.reauthenticate(with: credential)
+        return user
     }
     
     func updatePassword(password: String) async throws{

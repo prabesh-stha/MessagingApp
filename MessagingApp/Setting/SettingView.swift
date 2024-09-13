@@ -13,9 +13,12 @@ struct SettingView: View {
     @Binding var showSignIn: Bool
     var body: some View {
         List{
+            Button("Change Email"){
+                viewModel.showEmailSheet = true
+            }
             
             Button("Change Password"){
-                viewModel.showSheet = true
+                viewModel.showPasswordSheet = true
             }
             
             Button {
@@ -26,7 +29,10 @@ struct SettingView: View {
             }
 
         }
-        .sheet(isPresented: $viewModel.showSheet, content: {
+        .sheet(isPresented: $viewModel.showEmailSheet, content: {
+            EmailChangeView()
+        })
+        .sheet(isPresented: $viewModel.showPasswordSheet, content: {
             PasswordChangeView(user: user, showSignIn: $showSignIn)
         })
         .alert("Are you sure?", isPresented: $viewModel.confirmAlert, actions: {

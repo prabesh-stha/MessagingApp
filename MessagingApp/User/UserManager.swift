@@ -80,6 +80,13 @@ class UserManager{
         try await userDocument(userId: userId).updateData(data)
     }
     
+    func changeEmail(userId: String, email: String) async throws{
+        let data: [String: Any] = [
+            UserModel.CodingKeys.email.rawValue : email.lowercased()
+        ]
+        try await userDocument(userId: userId).updateData(data)
+    }
+    
     func deleteUser(userId: String) async throws{
         try await userDocument(userId: userId).delete()
     }

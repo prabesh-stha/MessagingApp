@@ -11,6 +11,7 @@ import PhotosUI
 struct ProfileDetailView: View {
     @StateObject private var viewModel = ProfileDetailViewModel()
     @Binding var showSignIn: Bool
+    
     let user: UserModel
     var body: some View {
         ZStack{

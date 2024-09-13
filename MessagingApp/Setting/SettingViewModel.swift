@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 @MainActor
 final class SettingViewModel: ObservableObject{
     @Published var showAlert: Bool = false
@@ -13,7 +14,8 @@ final class SettingViewModel: ObservableObject{
     @Published var message: String = ""
     @Published var showSignIn: Bool = false
     @Published var confirmAlert: Bool = false
-    @Published var showSheet: Bool = false
+    @Published var showPasswordSheet: Bool = false
+    @Published var showEmailSheet: Bool = false
     
     func signOut(){
         Task{
