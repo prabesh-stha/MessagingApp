@@ -24,6 +24,8 @@
 		041A68552C8F0B3700392037 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041A68542C8F0B3600392037 /* GoogleService-Info.plist */; };
 		041A68582C8F5B4E00392037 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68572C8F5B4E00392037 /* SettingViewModel.swift */; };
 		041A685A2C8F5B5400392037 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A68592C8F5B5400392037 /* SettingView.swift */; };
+		043C28E02C948BCB006A2FD5 /* PasswordChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C28DF2C948BCB006A2FD5 /* PasswordChangeView.swift */; };
+		043C28E22C948BD3006A2FD5 /* PasswordChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C28E12C948BD3006A2FD5 /* PasswordChangeViewModel.swift */; };
 		043D93BC2C9029E100B55D8D /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D93BB2C9029E100B55D8D /* ChatModel.swift */; };
 		043D93BF2C902A4800B55D8D /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D93BE2C902A4800B55D8D /* MessageModel.swift */; };
 		043D93C12C902B0A00B55D8D /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D93C02C902B0A00B55D8D /* ChatManager.swift */; };
@@ -73,6 +75,8 @@
 		041A68542C8F0B3600392037 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		041A68572C8F5B4E00392037 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		041A68592C8F5B5400392037 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		043C28DF2C948BCB006A2FD5 /* PasswordChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeView.swift; sourceTree = "<group>"; };
+		043C28E12C948BD3006A2FD5 /* PasswordChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewModel.swift; sourceTree = "<group>"; };
 		043D93BB2C9029E100B55D8D /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		043D93BE2C902A4800B55D8D /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		043D93C02C902B0A00B55D8D /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
@@ -176,10 +180,29 @@
 		041A68562C8F5B4100392037 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				043C28DC2C948BA5006A2FD5 /* Password Change */,
 				041A68572C8F5B4E00392037 /* SettingViewModel.swift */,
 				041A68592C8F5B5400392037 /* SettingView.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		043C28DB2C948B0F006A2FD5 /* ProfileDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				043D93DE2C92142A00B55D8D /* ProfileDetailViewModel.swift */,
+				043D93DC2C92134500B55D8D /* ProfileDetailView.swift */,
+			);
+			path = ProfileDetailView;
+			sourceTree = "<group>";
+		};
+		043C28DC2C948BA5006A2FD5 /* Password Change */ = {
+			isa = PBXGroup;
+			children = (
+				043C28DF2C948BCB006A2FD5 /* PasswordChangeView.swift */,
+				043C28E12C948BD3006A2FD5 /* PasswordChangeViewModel.swift */,
+			);
+			path = "Password Change";
 			sourceTree = "<group>";
 		};
 		043D93BD2C902A2F00B55D8D /* Message */ = {
@@ -231,10 +254,9 @@
 		043D93D72C920BE400B55D8D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				043C28DB2C948B0F006A2FD5 /* ProfileDetailView */,
 				043D93D82C920BEE00B55D8D /* ProfileView.swift */,
 				043D93DA2C920C0E00B55D8D /* ProfileViewModel.swift */,
-				043D93DC2C92134500B55D8D /* ProfileDetailView.swift */,
-				043D93DE2C92142A00B55D8D /* ProfileDetailViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -395,6 +417,7 @@
 				04F76D652C8E1D5B00DF30C0 /* ContentView.swift in Sources */,
 				043D93D52C91E27900B55D8D /* NewMessageView.swift in Sources */,
 				041A685A2C8F5B5400392037 /* SettingView.swift in Sources */,
+				043C28E22C948BD3006A2FD5 /* PasswordChangeViewModel.swift in Sources */,
 				041A68452C8EDBA100392037 /* UserManager.swift in Sources */,
 				041A68402C8ED5A600392037 /* CustomProgressView.swift in Sources */,
 				041A682F2C8EB0E000392037 /* LargeButtonModifier.swift in Sources */,
@@ -421,6 +444,7 @@
 				043D93BF2C902A4800B55D8D /* MessageModel.swift in Sources */,
 				043D93DD2C92134500B55D8D /* ProfileDetailView.swift in Sources */,
 				041A68272C8E26A300392037 /* AuthenticationManager.swift in Sources */,
+				043C28E02C948BCB006A2FD5 /* PasswordChangeView.swift in Sources */,
 				043D93CC2C9068C300B55D8D /* NewChatViewModel.swift in Sources */,
 				04F76D852C8E22CA00DF30C0 /* ChatView.swift in Sources */,
 				04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */,

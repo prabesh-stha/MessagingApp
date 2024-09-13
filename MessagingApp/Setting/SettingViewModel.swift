@@ -13,7 +13,8 @@ final class SettingViewModel: ObservableObject{
     @Published var message: String = ""
     @Published var showSignIn: Bool = false
     @Published var confirmAlert: Bool = false
- 
+    @Published var showSheet: Bool = false
+    
     func signOut(){
         Task{
             do{

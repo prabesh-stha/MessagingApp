@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct SettingView: View {
+    let user: UserModel
     @StateObject private var viewModel = SettingViewModel()
     @Binding var showSignIn: Bool
     var body: some View {
         List{
+            
+            Button("Change Password"){
+                viewModel.showSheet = true
+            }
             
             Button {
                 viewModel.confirmAlert = true
@@ -21,6 +26,9 @@ struct SettingView: View {
             }
 
         }
+        .sheet(isPresented: $viewModel.showSheet, content: {
+            PasswordChangeView(user: user, showSignIn: $showSignIn)
+        })
         .alert("Are you sure?", isPresented: $viewModel.confirmAlert, actions: {
             Button("Yes", role: .destructive){
                 viewModel.signOut()
@@ -41,5 +49,5 @@ struct SettingView: View {
 }
 
 #Preview {
-    SettingView(showSignIn: .constant(false))
+    SettingView(user: UserModel(userId: "", userName: "", email: "", imageUrl: ""), showSignIn: .constant(false))
 }

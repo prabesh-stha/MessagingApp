@@ -60,7 +60,7 @@ struct ProfileView: View {
                     }
                     
                     NavigationLink {
-                        SettingView(showSignIn: $showSignIn)
+                        SettingView(user: user,showSignIn: $showSignIn)
                     } label: {
                         HStack{
                             Image(systemName: "gear")

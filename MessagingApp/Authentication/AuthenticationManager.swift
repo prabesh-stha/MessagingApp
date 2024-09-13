@@ -35,4 +35,15 @@ final class AuthenticationManager{
         guard let user = Auth.auth().currentUser else{ throw URLError(.badURL)}
         try await user.delete()
     }
+    
+    func reAuthentication(email: String, password: String) async throws{
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        guard let user = Auth.auth().currentUser else { throw URLError(.badURL)}
+        try await user.reauthenticate(with: credential)
+    }
+    
+    func updatePassword(password: String) async throws{
+        guard let user = Auth.auth().currentUser else{ throw URLError(.badURL)}
+        try await user.updatePassword(to: password)
+    }
 }
