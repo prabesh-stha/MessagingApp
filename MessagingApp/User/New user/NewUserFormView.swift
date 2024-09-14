@@ -73,7 +73,7 @@ struct NewUserFormView: View {
                             }
                         } label: {
                             Text("Sign Up")
-                                .largeButton(color: Color.blue)
+                                .largeButton(color: Color.cyan)
                         }
                         
                         

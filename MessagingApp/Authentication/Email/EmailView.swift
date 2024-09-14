@@ -18,7 +18,7 @@ struct EmailView: View {
                         .frame(width: 250, height: 250)
                         .clipShape(RoundedRectangle(cornerRadius: 25))
                         .padding(.bottom)
-                        .padding(.top)
+                        
                         
                     
                     CustomTextFieldWithIcon(text: $viewModel.email, icon: "envelope", placeholder: "Email")
@@ -34,26 +34,33 @@ struct EmailView: View {
                             }
                         } label: {
                             Text("Sign In")
-                                .largeButton(color: Color.blue)
+                                .largeButton(color: Color.cyan)
                         }
-                        .padding(.bottom, 20)
+                        .padding(.bottom)
+                    
+                    Button {
+                        viewModel.showForgotPasswordSheet = true
+                    } label: {
+                        Text("Forgot Password?")
+                    }
+                    .padding(.bottom, 30)
+
                     
                     NavigationLink {
                         NewUserFormView(showSignIn: $showSignIn)
                     } label: {
-                        VStack {
+                        HStack {
                             Text("Not a member?")
+                                .foregroundStyle(.black)
                             Text("Create an account")
-                                .font(.headline)
-                                .padding()
-                                .foregroundStyle(Color.white)
-                                .background(Color.purple)
-                                .clipShape(RoundedRectangle(cornerRadius: 25))
                         }
                     }
                     .navigationTitle("Sign in")
                 }
                 }
+            .sheet(isPresented: $viewModel.showForgotPasswordSheet, content: {
+                PasswordForgotView(showSignIn: $showSignIn)
+            })
                 .alert("", isPresented: $viewModel.showAlert) {
                     Button("OK", role: .cancel) {}
                 } message: {

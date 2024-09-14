@@ -28,6 +28,7 @@ struct ContentView: View {
                         Label("Profile", systemImage: "person")
                     }
                 }
+                .tint(.cyan)
             }
         }
         .fullScreenCover(isPresented: $showSignIn, content: {

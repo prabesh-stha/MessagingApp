@@ -80,6 +80,7 @@ struct ProfileDetailView: View {
                     }
                 }
                 .navigationTitle("\(user.userName.firstName() ?? "Unknown")'s Profile")
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
                         Button {

@@ -14,6 +14,7 @@ final class EmailViewModel: ObservableObject{
     @Published var showProgressView: Bool = false
     @Published var showAlert: Bool = false
     @Published var message: String = ""
+    @Published var showForgotPasswordSheet: Bool = false
     
 
     func signIn() async throws -> Bool{

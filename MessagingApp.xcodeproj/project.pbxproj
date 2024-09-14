@@ -28,6 +28,8 @@
 		043C28E22C948BD3006A2FD5 /* PasswordChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C28E12C948BD3006A2FD5 /* PasswordChangeViewModel.swift */; };
 		043C28E52C949A62006A2FD5 /* EmailChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C28E42C949A62006A2FD5 /* EmailChangeView.swift */; };
 		043C28E72C949A9B006A2FD5 /* EmailChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C28E62C949A9B006A2FD5 /* EmailChangeViewModel.swift */; };
+		043C28EA2C9557F1006A2FD5 /* PasswordForgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C28E92C9557F1006A2FD5 /* PasswordForgetViewModel.swift */; };
+		043C28EC2C9557FB006A2FD5 /* PasswordForgotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C28EB2C9557FB006A2FD5 /* PasswordForgotView.swift */; };
 		043D93BC2C9029E100B55D8D /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D93BB2C9029E100B55D8D /* ChatModel.swift */; };
 		043D93BF2C902A4800B55D8D /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D93BE2C902A4800B55D8D /* MessageModel.swift */; };
 		043D93C12C902B0A00B55D8D /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D93C02C902B0A00B55D8D /* ChatManager.swift */; };
@@ -81,6 +83,8 @@
 		043C28E12C948BD3006A2FD5 /* PasswordChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewModel.swift; sourceTree = "<group>"; };
 		043C28E42C949A62006A2FD5 /* EmailChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailChangeView.swift; sourceTree = "<group>"; };
 		043C28E62C949A9B006A2FD5 /* EmailChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailChangeViewModel.swift; sourceTree = "<group>"; };
+		043C28E92C9557F1006A2FD5 /* PasswordForgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForgetViewModel.swift; sourceTree = "<group>"; };
+		043C28EB2C9557FB006A2FD5 /* PasswordForgotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForgotView.swift; sourceTree = "<group>"; };
 		043D93BB2C9029E100B55D8D /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		043D93BE2C902A4800B55D8D /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		043D93C02C902B0A00B55D8D /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 		041A68562C8F5B4100392037 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				043C28E82C9557DB006A2FD5 /* Password Forgot */,
 				043C28E32C949A51006A2FD5 /* Email Change */,
 				043C28DC2C948BA5006A2FD5 /* Password Change */,
 				041A68572C8F5B4E00392037 /* SettingViewModel.swift */,
@@ -217,6 +222,15 @@
 				043C28E62C949A9B006A2FD5 /* EmailChangeViewModel.swift */,
 			);
 			path = "Email Change";
+			sourceTree = "<group>";
+		};
+		043C28E82C9557DB006A2FD5 /* Password Forgot */ = {
+			isa = PBXGroup;
+			children = (
+				043C28E92C9557F1006A2FD5 /* PasswordForgetViewModel.swift */,
+				043C28EB2C9557FB006A2FD5 /* PasswordForgotView.swift */,
+			);
+			path = "Password Forgot";
 			sourceTree = "<group>";
 		};
 		043D93BD2C902A2F00B55D8D /* Message */ = {
@@ -435,6 +449,7 @@
 				041A68452C8EDBA100392037 /* UserManager.swift in Sources */,
 				043C28E72C949A9B006A2FD5 /* EmailChangeViewModel.swift in Sources */,
 				041A68402C8ED5A600392037 /* CustomProgressView.swift in Sources */,
+				043C28EA2C9557F1006A2FD5 /* PasswordForgetViewModel.swift in Sources */,
 				041A682F2C8EB0E000392037 /* LargeButtonModifier.swift in Sources */,
 				043D93E12C92211C00B55D8D /* CustomTextField.swift in Sources */,
 				041A684C2C8EE0D800392037 /* NewUserFormViewModel.swift in Sources */,
@@ -461,6 +476,7 @@
 				043D93DD2C92134500B55D8D /* ProfileDetailView.swift in Sources */,
 				041A68272C8E26A300392037 /* AuthenticationManager.swift in Sources */,
 				043C28E02C948BCB006A2FD5 /* PasswordChangeView.swift in Sources */,
+				043C28EC2C9557FB006A2FD5 /* PasswordForgotView.swift in Sources */,
 				043D93CC2C9068C300B55D8D /* NewChatViewModel.swift in Sources */,
 				04F76D852C8E22CA00DF30C0 /* ChatView.swift in Sources */,
 				04F76D632C8E1D5B00DF30C0 /* MessagingAppApp.swift in Sources */,

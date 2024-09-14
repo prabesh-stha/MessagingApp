@@ -26,7 +26,7 @@ struct MessageView: View {
                             VStack {
                                 Text(message.text)
                                     .padding(6)
-                                    .background((message.senderId == userId) ? Color.blue : Color.gray.opacity(0.5))
+                                    .background((message.senderId == userId) ? Color.cyan : Color.gray.opacity(0.5))
                                     .cornerRadius(8)
                                     .foregroundColor((message.senderId == userId) ? .white : .black)
                                     .frame(maxWidth: 300, alignment: (message.senderId == userId) ? .trailing : .leading)
@@ -82,7 +82,7 @@ struct MessageView: View {
                     .scaledToFit()
                     .frame(width: 24, height: 24)
                     .padding(10)
-                    .background((viewModel.text == "Type a message..." || viewModel.text.isEmpty || viewModel.receiver == nil) ? Color.gray : Color.blue)
+                    .background((viewModel.text == "Type a message..." || viewModel.text.isEmpty || viewModel.receiver == nil) ? Color.gray : Color.cyan)
                     .clipShape(Circle())
                     .foregroundColor(Color.white)
             }

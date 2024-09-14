@@ -16,6 +16,7 @@ final class SettingViewModel: ObservableObject{
     @Published var confirmAlert: Bool = false
     @Published var showPasswordSheet: Bool = false
     @Published var showEmailSheet: Bool = false
+    @Published var showForgotPasswordSheet: Bool = false
     
     func signOut(){
         Task{

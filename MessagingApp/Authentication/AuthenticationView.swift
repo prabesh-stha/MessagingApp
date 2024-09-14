@@ -28,10 +28,7 @@ struct AuthenticationView: View {
                         EmailView(showSignIn: $showSignIn)
                     } label: {
                         Text("Sign in with email")
-                            .frame(width: 200, height: 55, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .foregroundStyle(.white)
-                            .background(.purple)
-                            .clipShape(RoundedRectangle(cornerRadius: 25))
+                            .largeButton(color: Color.cyan)
                     }
                 }
                 .padding()

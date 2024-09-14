@@ -52,4 +52,8 @@ final class AuthenticationManager{
         guard let user = Auth.auth().currentUser else{ throw URLError(.badURL)}
         try await user.updatePassword(to: password)
     }
+    
+    func forgetPassword(email: String) async throws{
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
 }

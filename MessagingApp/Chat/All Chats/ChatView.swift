@@ -85,12 +85,12 @@ struct ChatView: View {
                 viewModel.getUserId()
             }
             .toolbar {
-                ToolbarItem(placement: .destructiveAction) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.showSheet = true
                     } label: {
                         Image(systemName: "square.and.pencil")
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.cyan)
                     }
                 }
             }
